@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   // aquí agregamos el MaterialApp al árbol de widgets
   @override
   Widget build(BuildContext context) {
+    // Omar Daniel
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Currency converter',

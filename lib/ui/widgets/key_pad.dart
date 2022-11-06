@@ -29,6 +29,7 @@ class _KeyPadState extends State<KeyPad> {
   void _onPressed(int k) {
     setState(() {
       if (k == 10) {
+        // Omar Yecid
         // TODO
         // cuando k es 10 se debe volver el estado a cero
       } else {
@@ -78,8 +79,8 @@ class _KeyPadState extends State<KeyPad> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text('se muestra textCurrency1'),
               ),
               Expanded(
@@ -99,33 +100,34 @@ class _KeyPadState extends State<KeyPad> {
             ],
           ),
           Expanded(
+            // Jose
             flex: 1,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
+                children: const <Widget>[
                   // TODO
                   // en cada OneKey se manda el número y _onPressed para callback
-                  const Text('OneKey para 7, 8 y 9'),
+                  Text('OneKey para 7, 8 y 9'),
                 ]),
           ),
           Expanded(
             flex: 1,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
+                children: const <Widget>[
                   // TODO
-                  // en cada OneKey se manda el número y _onPressed para callback
-                  const Text('OneKey para 6, 5 y 4'),
+                  //en cada OneKey se manda el número y _onPressed para callback
+                  Text('OneKey para 6, 5 y 4'),
                 ]),
           ),
           Expanded(
             flex: 1,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
+                children: const <Widget>[
                   // TODO
                   // en cada OneKey se manda el número y _onPressed para callback
-                  const Text('OneKey para 1, 2 y 3'),
+                  Text('OneKey para 1, 2 y 3'),
                 ]),
           ),
           Expanded(
