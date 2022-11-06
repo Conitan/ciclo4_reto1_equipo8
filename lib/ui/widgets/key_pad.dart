@@ -19,6 +19,31 @@ class KeyPad extends StatefulWidget {
   State<KeyPad> createState() => _KeyPadState();
 }
 
+// class Botones extends StatelessWidget {
+//   final String valor;
+//   const Botones({Key? key, required this.valor}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: Padding(
+//         padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+//         child: MaterialButton(
+//             key: const Key("reset"),
+//             padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+//             color: Theme.of(context).colorScheme.secondary,
+//             onPressed: () {
+//               _KeyPadState._onPressed(0);
+//             },
+//             child: const Text("0",
+//                 style: TextStyle(
+//                   fontSize: 26.0,
+//                   color: Colors.white,
+//                 ))),
+//       ),
+//     );
+//   }
+// }
+
 class _KeyPadState extends State<KeyPad> {
   // valor de la moneda convertida
   double _currency2 = 0;
@@ -79,9 +104,9 @@ class _KeyPadState extends State<KeyPad> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text('se muestra textCurrency1'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(widget.textCurrency2),
               ),
               Expanded(
                 child: Container(),
@@ -104,30 +129,96 @@ class _KeyPadState extends State<KeyPad> {
             flex: 1,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const <Widget>[
-                  // TODO
-                  // en cada OneKey se manda el número y _onPressed para callback
-                  Text('OneKey para 7, 8 y 9'),
+                children: <Widget>[
+                  // TODO en cada OneKey se manda el número y _onPressed para callback
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(7),
+                          child: const _Botones(valor: '7')),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(8),
+                          child: const _Botones(valor: '8')),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(9),
+                          child: const _Botones(valor: '9')),
+                    ),
+                  ),
                 ]),
           ),
           Expanded(
             flex: 1,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const <Widget>[
-                  // TODO
-                  //en cada OneKey se manda el número y _onPressed para callback
-                  Text('OneKey para 6, 5 y 4'),
+                children: <Widget>[
+                  // TODO cada OneKey se manda el número y _onPressed para callback
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(4),
+                          child: const _Botones(valor: '4')),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(5),
+                          child: const _Botones(valor: '5')),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(6),
+                          child: const _Botones(valor: '6')),
+                    ),
+                  ),
                 ]),
           ),
           Expanded(
             flex: 1,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const <Widget>[
-                  // TODO
-                  // en cada OneKey se manda el número y _onPressed para callback
-                  Text('OneKey para 1, 2 y 3'),
+                children: <Widget>[
+                  // TODO en cada OneKey se manda el número y _onPressed para callback
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(1),
+                          child: const _Botones(valor: '1')),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(2),
+                          child: const _Botones(valor: '2')),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                      child: GestureDetector(
+                          onTap: () => _onPressed(3),
+                          child: const _Botones(valor: '3')),
+                    ),
+                  ),
                 ]),
           ),
           Expanded(
@@ -136,25 +227,43 @@ class _KeyPadState extends State<KeyPad> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: MaterialButton(
-                      key: const Key("reset"),
-                      padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-                      color: Theme.of(context).colorScheme.secondary,
-                      onPressed: () {
-                        _onPressed(10);
-                      },
-                      child: const Text("Reset",
-                          style: TextStyle(
-                            fontSize: 26.0,
-                            color: Colors.white,
-                          ))),
+                  child: GestureDetector(
+                      onTap: () => _onPressed(10),
+                      child: const _Botones(valor: 'Reset')),
                 ),
               ),
+
               // TODO
               // en cada OneKey se manda el número y _onPressed para callback
-              const Text('OneKey para 0'),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+                  child: GestureDetector(
+                      onTap: () => _onPressed(0),
+                      child: const _Botones(valor: '0')),
+                ),
+              ),
             ]),
           )
         ]);
+  }
+}
+
+class _Botones extends StatelessWidget {
+  final String valor;
+  const _Botones({Key? key, required this.valor}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+        key: Key(valor),
+        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+        color: Theme.of(context).colorScheme.secondary,
+        onPressed: () {},
+        child: Text(valor,
+            style: const TextStyle(
+              fontSize: 26.0,
+              color: Colors.white,
+            )));
   }
 }
