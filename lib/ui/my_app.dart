@@ -9,13 +9,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Omar Daniel
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Currency converter',
-        theme: ThemeData(
-          primarySwatch: Colors.grey,
-        ),
-        // TODO
-        // ConverterPage es el widget que presenta la página de la aplicación
-        home: const Text('aquí colocamos ConverterPage'));
+      debugShowCheckedModeBanner: false,
+      title: 'Currency converter',
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+      ),
+      // TODO ConverterPage es el widget que presenta la página de la aplicación
+
+      // home: const Text('aquí colocamos ConverterPage')
+    );
   }
 }
