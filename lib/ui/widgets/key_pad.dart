@@ -109,9 +109,9 @@ class _KeyPadState extends State<KeyPad> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   // TODO en cada OneKey se manda el número y _onPressed para callback
-                  botones(context, '7'),
-                  botones(context, '8'),
-                  botones(context, '9'),
+                  OneKey(number: 7, callback: _onPressed),
+                  OneKey(number: 8, callback: _onPressed),
+                  OneKey(number: 9, callback: _onPressed),
                 ]),
           ),
           Expanded(
@@ -120,9 +120,9 @@ class _KeyPadState extends State<KeyPad> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   // TODO cada OneKey se manda el número y _onPressed para callback
-                  botones(context, '4'),
-                  botones(context, '5'),
-                  botones(context, '6'),
+                  OneKey(number: 4, callback: _onPressed),
+                  OneKey(number: 5, callback: _onPressed),
+                  OneKey(number: 6, callback: _onPressed),
                 ]),
           ),
           Expanded(
@@ -131,41 +131,21 @@ class _KeyPadState extends State<KeyPad> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   // TODO en cada OneKey se manda el número y _onPressed para callback
-                  botones(context, '1'),
-                  botones(context, '2'),
-                  botones(context, '3'),
+                  OneKey(number: 1, callback: _onPressed),
+                  OneKey(number: 2, callback: _onPressed),
+                  OneKey(number: 3, callback: _onPressed),
                 ]),
           ),
           Expanded(
             flex: 1,
             child: Row(children: <Widget>[
-              botones(context, '10'),
+              OneKey(number: 10, callback: _onPressed),
 
               // TODO
               // en cada OneKey se manda el número y _onPressed para callback
-              botones(context, '0'),
+              OneKey(number: 0, callback: _onPressed),
             ]),
           )
         ]);
-  }
-
-  Expanded botones(BuildContext context, String value) {
-    String valueAux = value;
-    value == '10' ? valueAux = 'Reset' : value;
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-        child: MaterialButton(
-            key: Key(valueAux),
-            padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-            color: Theme.of(context).colorScheme.secondary,
-            onPressed: () => _onPressed(int.parse(value)),
-            child: Text(valueAux,
-                style: const TextStyle(
-                  fontSize: 26.0,
-                  color: Colors.white,
-                ))),
-      ),
-    );
   }
 }

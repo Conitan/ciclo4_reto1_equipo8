@@ -11,17 +11,19 @@ class OneKey extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO.
     // te le mides a mejorar este key??
+    String value;
+    number == 10 ? value = 'Reset' : value = number.toString();
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
         child: MaterialButton(
-            key: Key(number.toString()),
+            key: Key(value.toString()),
             color: Theme.of(context).primaryColor,
             padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
             onPressed: () {
               callback(number);
             },
-            child: Text(number.toString(),
+            child: Text(value.toString(),
                 style: const TextStyle(
                   fontSize: 26.0,
                   color: Colors.white,
