@@ -1,3 +1,4 @@
+import 'package:f_currency_converter_template/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'one_key.dart';
 
@@ -19,31 +20,6 @@ class KeyPad extends StatefulWidget {
   State<KeyPad> createState() => _KeyPadState();
 }
 
-// class Botones extends StatelessWidget {
-//   final String valor;
-//   const Botones({Key? key, required this.valor}) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     return Expanded(
-//       child: Padding(
-//         padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-//         child: MaterialButton(
-//             key: const Key("reset"),
-//             padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-//             color: Theme.of(context).colorScheme.secondary,
-//             onPressed: () {
-//               _KeyPadState._onPressed(0);
-//             },
-//             child: const Text("0",
-//                 style: TextStyle(
-//                   fontSize: 26.0,
-//                   color: Colors.white,
-//                 ))),
-//       ),
-//     );
-//   }
-// }
-
 class _KeyPadState extends State<KeyPad> {
   // valor de la moneda convertida
   double _currency2 = 0;
@@ -57,10 +33,12 @@ class _KeyPadState extends State<KeyPad> {
         // Omar Yecid
         // TODO
         // cuando k es 10 se debe volver el estado a cero
+
       } else {
         // TODO
         // _currency1 debe cambiar con el keypad
         // _currency2 debe cambiar de acuerdo con _currency1 y la tasa de cambio
+
       }
     });
   }
@@ -131,30 +109,9 @@ class _KeyPadState extends State<KeyPad> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   // TODO en cada OneKey se manda el número y _onPressed para callback
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(7),
-                          child: const _Botones(valor: '7')),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(8),
-                          child: const _Botones(valor: '8')),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(9),
-                          child: const _Botones(valor: '9')),
-                    ),
-                  ),
+                  botones(context, '7'),
+                  botones(context, '8'),
+                  botones(context, '9'),
                 ]),
           ),
           Expanded(
@@ -163,30 +120,9 @@ class _KeyPadState extends State<KeyPad> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   // TODO cada OneKey se manda el número y _onPressed para callback
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(4),
-                          child: const _Botones(valor: '4')),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(5),
-                          child: const _Botones(valor: '5')),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(6),
-                          child: const _Botones(valor: '6')),
-                    ),
-                  ),
+                  botones(context, '4'),
+                  botones(context, '5'),
+                  botones(context, '6'),
                 ]),
           ),
           Expanded(
@@ -195,75 +131,41 @@ class _KeyPadState extends State<KeyPad> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   // TODO en cada OneKey se manda el número y _onPressed para callback
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(1),
-                          child: const _Botones(valor: '1')),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(2),
-                          child: const _Botones(valor: '2')),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                      child: GestureDetector(
-                          onTap: () => _onPressed(3),
-                          child: const _Botones(valor: '3')),
-                    ),
-                  ),
+                  botones(context, '1'),
+                  botones(context, '2'),
+                  botones(context, '3'),
                 ]),
           ),
           Expanded(
             flex: 1,
             child: Row(children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: GestureDetector(
-                      onTap: () => _onPressed(10),
-                      child: const _Botones(valor: 'Reset')),
-                ),
-              ),
+              botones(context, '10'),
 
               // TODO
               // en cada OneKey se manda el número y _onPressed para callback
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                  child: GestureDetector(
-                      onTap: () => _onPressed(0),
-                      child: const _Botones(valor: '0')),
-                ),
-              ),
+              botones(context, '0'),
             ]),
           )
         ]);
   }
-}
 
-class _Botones extends StatelessWidget {
-  final String valor;
-  const _Botones({Key? key, required this.valor}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialButton(
-        key: Key(valor),
-        padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
-        color: Theme.of(context).colorScheme.secondary,
-        onPressed: () {},
-        child: Text(valor,
-            style: const TextStyle(
-              fontSize: 26.0,
-              color: Colors.white,
-            )));
+  Expanded botones(BuildContext context, String value) {
+    String valueAux = value;
+    value == '10' ? valueAux = 'Reset' : value;
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+        child: MaterialButton(
+            key: Key(valueAux),
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 20),
+            color: Theme.of(context).colorScheme.secondary,
+            onPressed: () => _onPressed(int.parse(value)),
+            child: Text(valueAux,
+                style: const TextStyle(
+                  fontSize: 26.0,
+                  color: Colors.white,
+                ))),
+      ),
+    );
   }
 }
