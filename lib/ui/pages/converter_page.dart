@@ -32,7 +32,7 @@ class _ConverterPageState extends State<ConverterPage> {
     // El siguiente widget en el arbol es el Scaffold
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Equipo 8'),
+          title: const Text('Equipo 8 - NRC 2290'),
         ),
         body: Column(children: [
           Row(
