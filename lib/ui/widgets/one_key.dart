@@ -9,8 +9,6 @@ class OneKey extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO.
-    // te le mides a mejorar este key??
     String value;
     number == 10 ? value = 'Reset' : value = number.toString();
     return Expanded(

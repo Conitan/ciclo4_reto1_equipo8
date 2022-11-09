@@ -32,7 +32,7 @@ class _ConverterPageState extends State<ConverterPage> {
     // El siguiente widget en el arbol es el Scaffold
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Currency converter'),
+          title: const Text('Equipo 8'),
         ),
         body: Column(children: [
           Row(
@@ -75,15 +75,15 @@ class _ConverterPageState extends State<ConverterPage> {
               ),
             ],
           ),
-          const Expanded(
-              // Omar Daniel
-              // TODO
-              // los nombres de las monedas se pueden obtener en la lista currencies
-              // la tasa de cambio se puede obtener en la estructura de datos rates
-              child: Center(
-            child: Text(
-                'Aquí incluimos el widget KeyPad, mandando los nombres de las dos monedas y la tasa de cambio'),
-          ))
+          Expanded(
+            child: Center(
+              child: KeyPad(
+                  textCurrency1: currencies[currency1],
+                  textCurrency2: currencies[currency2],
+                  rate: rates[currency1][currency2]),
+              // child: Text('Aquí incluimos el widget KeyPad, mandando los nombres de las dos monedas y la tasa de cambio'),
+            ),
+          )
         ]));
   }
 }
